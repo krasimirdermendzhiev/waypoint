@@ -1,0 +1,10 @@
+credential:
+  - name: endpoint
+    value: "http://{{ .Values.instanceName }}"
+  - name: admin-user
+    value: admin
+  - name: admin-password
+    valueFrom:
+      secretKeyRef:
+        name: {{ template "waypoint.fullname" . }}
+        key: admin-password

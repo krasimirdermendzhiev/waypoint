@@ -1,0 +1,15 @@
+name: waypoint
+version: 0.0.1
+id: c8618d84-7740-4b67-a458-692849939484
+description: "Example Waypoint addon"
+displayName: "Waypoint"
+
+tags: build
+labels:
+  experimental: "true"
+providerDisplayName: waypoint
+longDescription: "This is waypoint addon"
+documentationURL: https://www.waypointproject.io/
+supportURL: https://www.waypointproject.io/community
+imageURL:
+bindable: true

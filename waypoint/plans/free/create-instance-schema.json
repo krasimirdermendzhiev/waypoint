@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "instanceName": {
+        "type": "string",
+        "title": "Instance name",
+        "description": "Instance name that will become part of dn"
+      }
+    },
+    "required": ["instanceName"]
+}
