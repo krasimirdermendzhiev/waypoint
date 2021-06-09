@@ -1,1 +1,1 @@
-# waypoint
+# Waypoint helm chart
