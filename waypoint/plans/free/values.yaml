@@ -1,5 +1,6 @@
 
-#replicaCount: 1
+
+replicaCount: 1
 
 image:
   repository: hashicorp/waypoint
@@ -9,6 +10,20 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+rbac:
+  create: true
+  pspEnabled: true
+  pspUseAppArmor: true
+  namespaced: false
+  extraRoleRules: []
+  # - apiGroups: []
+  #   resources: []
+  #   verbs: []
+  extraClusterRoleRules: []
+  # - apiGroups: []
+  #   resources: []
+  #   verbs: []
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -37,16 +52,20 @@ securityContext: {}
 #  port: 9702
 
 ingress:
-  enabled: false
-  annotations: {}
-  hosts:
-    - host: chart-example.local
-      paths:
-      - path: /
-        backend:
-          serviceName: chart-example.local
-          servicePort: 9702
-  tls: []
+  enabled: true
+    annotations: { }
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+    labels: { }
+    path: /
+
+    ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
+    extraPaths: [ ]
+    # - path: /*
+    #   backend:
+    #     serviceName: ssl-redirect
+    #     servicePort: use-annotation
+    tls: [ ]
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
